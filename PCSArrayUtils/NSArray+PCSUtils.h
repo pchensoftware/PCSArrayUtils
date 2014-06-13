@@ -10,5 +10,6 @@
 @interface NSArray (PCSUtils)
 
 - (id)safeObjectAtIndex:(NSUInteger)index;
+- (NSArray *)convert:(id(^)(id element))conversionBlock;
 
 @end

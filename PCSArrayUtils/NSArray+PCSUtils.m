@@ -16,4 +16,17 @@
    return self[index];
 }
 
+- (NSArray *)convert:(id(^)(id element))conversionBlock {
+   if (! conversionBlock)
+      return self;
+   
+   NSMutableArray *output = [NSMutableArray array];
+   for (id element in self) {
+      id convertedElement = conversionBlock(element);
+      if (convertedElement)
+         [output addObject:convertedElement];
+   }
+   return output;
+}
+
 @end
